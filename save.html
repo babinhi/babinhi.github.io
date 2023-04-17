@@ -32,7 +32,7 @@
          /* font-weight: bold; */
          background-position: center;
          width: 800px;
-         height: 1400px;
+         height: auto;
          /* box-shadow: 10cm; */
          /* border: 1px solid black; */
 
@@ -74,18 +74,18 @@
          <div id="save_form" class="container">
             <label for="member-uesrname">아이디</label>
             <input type="text" id="member-uesrname" name="memberUesrname" class="form-control" onblur="uesr()"
-               placeholder="영어 소문자와 숫자 특수문자(-_) 포함 5~10자 이내로 작성해주세요">
+               placeholder="영어 소문자와 숫자 특수문자(-_) 포함 5~10자 이내로 작성해주세요"><i class="bi bi-check" id="iconcolor"></i>
             <p id="uesrname-check"></p>
 
             <label for="member-password">비밀번호</label>
-            <input type="text" id="member-password" name="memberPassword" class="form-control" onblur="password()" i
-               class="bi bi-key" placeholder="영어 대/소문자와 숫자 특수문자(!#$-_) 포함 6~18자 이내로 작성해주세요" i class="bi bi-key">
+            <input type="password" id="member-password" name="memberPassword" class="form-control" onblur="password()"
+               placeholder="영어 대/소문자와 숫자 특수문자(!#$-_) 포함 6~18자 이내로 작성해주세요"> <i class="bi bi-check" id="iconcolor"></i>
 
             <p id="password-check"></p>
 
             <label for="password-confirm">비밀번호 확인</label>
-            <input type="text" id="password-confirm" name="passwordConfirm" class="form-control" onblur="confirm()"
-               placeholder="영어 대/소문자와 숫자특수문자(!#$-_) 포함 6~18자 이내로 작성해주세요">
+            <input type="password" id="password-confirm" name="passwordConfirm" class="form-control" onblur="confirm()"
+               placeholder="영어 대/소문자와 숫자특수문자(!#$-_) 포함 6~18자 이내로 작성해주세요"><i class="bi bi-check" id="iconcolor"></i>
             <p id="confirm-check"></p>
 
             <label for="member-name">이름</label>
@@ -182,14 +182,15 @@
             <label for="email-check">이메일입력</label>
             <div class="row">
                <div class="col">
-                  <input type="text" id="emailid-check" name="memberCheck" class="form-control" onblur="email_id()" placeholder="이메일">
-                  <p id = "id_check"></p>
+                  <input type="text" id="emailid-check" name="memberCheck" class="form-control" onblur="email_id()"
+                     placeholder="이메일">
+                  <p id="id_check"></p>
                </div>
                @
                <div class="col">
                   <input type="text" id="email-domain" name="mwmberEmail" class="form-control" onblur="email_domain()"
                      placeholder="메일 입력">
-                     <p id = "emaildomain_check"></p>
+                  <p id="emaildomain_check"></p>
                </div>
                <div class="col">
                   <select id="email-domain-select" class="form-control" onchange="domain_select()">
@@ -227,15 +228,17 @@
                </div>
                <div class=" col-4">
                   <input type="text" id="sample6_extraAddress" class="form-control mb-2" placeholder="참고항목">
-               </div> 
+               </div>
+            </div>
+            <div class="row">
+               <div class=" col">
+                  <input type="button" id="signup" class="btn btn-outline-dark btn-blook" value="가입하기"
+                     onclick="signup()">
+               </div>
             </div>
 
-            <input type="button" id = "signup" class="btn btn-outline-dark btn-blook" value="가입하기" onclick="signup()">
-
          </div>
-
       </div>
-   </div>
    </div>
 </body>
 <script>
@@ -271,10 +274,12 @@
    const email_id = () => {
       const emailId = document.getElementById("emailid-check").value;
       const emailIdcheck = document.getElementById("id_check");
+
       const exp = /^(?=.*[a-z])[A-Za-z\d]{5,10}$/;
       if (emailId.length == 0) {
          emailIdcheck.innerHTML = "필수입력하세요";
          emailIdcheck.style.color = "red";
+
       }
       else if (!emailId.match(exp)) {
          emailIdcheck.innerHTML = "이메일을 확인해주세요";
@@ -312,17 +317,21 @@
    const password = () => {
       const password = document.getElementById("member-password").value;
       const passwordCheck = document.getElementById("password-check");
+      const icon = document.getElementById("iconcolor");
       const exp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!#$-_])[!#$-_A-Za-z\d]{6,18}$/;
       if (password.length == 0) {
          passwordCheck.innerHTML = "필수입력하세요";
          passwordCheck.style.color = "red";
+         icon.style.color = "red";
       }
       else if (!password.match(exp)) {
          passwordCheck.innerHTML = "비밀번호를 확인해주세요";
          passwordCheck.style.color = "red";
+         icon.style.color = "red";
       } else {
          passwordCheck.innerHTML = "확인되었습니다";
          passwordCheck.style.color = "green";
+         icon.style.color = "green";
       }
 
    }
@@ -333,7 +342,7 @@
       if (pw == check) {
          pwCheck.innerHTML = "비밀번호가 일치합니다";
          pwCheck.style.color = "green";
-      } else if(!pw == check || pw.length ==0){
+      } else if (!pw == check || pw.length == 0) {
          pwCheck.innerHTML = "비밀번호가 일치하지 않습니다";
          pwCheck.style.color = "red";
       }
@@ -465,8 +474,8 @@
          alert("메일이 확인되었습니다");
 
       }
-      const signup =() => {
-         const uesr1 =document.getElementById("member-uesrname").value;
+      const signup = () => {
+         const uesr1 = document.getElementById("member-uesrname").value;
          const password1 = document.getElementById()
       }
    }
