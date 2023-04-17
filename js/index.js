@@ -1,3 +1,5 @@
-const fun1 = () => {
-    alert("호출됬어요");
-}
+// const fun1 = () => {
+//     alert("https://github.com/babinhi");
+//     <a href="https://github.com/babinhi"></a>
+
+// }
