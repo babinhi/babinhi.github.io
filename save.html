@@ -176,18 +176,20 @@
                </div>
             </div>
 
-            <input type="text" id="moblie_check" name="moblie_check" class="form-control mb-3"
+            <input type="text" id="moblie-check" name="moblie_check" class="form-control mb-3"
                placeholder="인증번호를 입력하세요">
 
             <label for="email-check">이메일입력</label>
             <div class="row">
                <div class="col">
-                  <input type="text" id="email-check" name="memberCheck" class="form-control" onblur="id()">
+                  <input type="text" id="emailid-check" name="memberCheck" class="form-control" onblur="email_id()" placeholder="이메일">
+                  <p id = "id_check"></p>
                </div>
                @
                <div class="col">
-                  <input type="text" id="member-email" name="mwmberEmail" class="form-control" onblur="email()"
+                  <input type="text" id="email-domain" name="mwmberEmail" class="form-control" onblur="email_domain()"
                      placeholder="메일 입력">
+                     <p id = "emaildomain_check"></p>
                </div>
                <div class="col">
                   <select id="email-domain-select" class="form-control" onchange="domain_select()">
@@ -197,6 +199,7 @@
                      <option value="hanmail.net">한메일</option>
                   </select>
                </div>
+               <div></div>
                <div class="col-3">
                   <input type="button" class="btn btn-dark btn-blook mb-3" value="이메일 확인" onclick="mailcheck()">
                </div>
@@ -252,12 +255,57 @@
          idCheck.innerHTML = "확인되었습니다";
          idCheck.style.color = "green";
       }
+   }
+   // <label for="email-check">이메일입력</label>
+   //          <div class="row">
+   //             <div class="col">
+   //                <input type="text" id="emailid-check" name="memberCheck" class="form-control" onblur="email_id()" placeholder="이메일">
+   //                <p id = "id_check"></p>
+   //             </div>
+   //             @
+   //             <div class="col">
+   //                <input type="text" id="email-domain" name="mwmberEmail" class="form-control" onblur="email_domain()"
+   //                   placeholder="메일 입력">
+   //                   <p id = "emaildomain_check"></p>
+
+   const email_id = () => {
+      const emailId = document.getElementById("emailid-check").value;
+      const emailIdcheck = document.getElementById("id_check");
+      const exp = /^(?=.*[a-z])[A-Za-z\d]{5,10}$/;
+      if (emailId.length == 0) {
+         emailIdcheck.innerHTML = "필수입력하세요";
+         emailIdcheck.style.color = "red";
+      }
+      else if (!emailId.match(exp)) {
+         emailIdcheck.innerHTML = "이메일을 확인해주세요";
+         emailIdcheck.style.color = "red";
+      } else {
+         emailIdcheck.innerHTML = "확인되었습니다";
+         emailIdcheck.style.color = "green";
+      }
+   }
+   const email_domain = () => {
+      const emaildomain = document.getElementById("email-domain").value;
+      const domaincheck = document.getElementById("emaildomain_check");
+      const exp = /^(?=.*[a-z])(?=.*[.])[.a-z\d]{8,10}$/;
+      if (emaildomain.length == 0) {
+         domaincheck.innerHTML = "필수입력하세요";
+         domaincheck.style.color = "red";
+      }
+      else if (!emaildomain.match(exp)) {
+         domaincheck.innerHTML = "형식을 확인해주세요";
+         domaincheck.style.color = "red";
+      } else {
+         domaincheck.innerHTML = "확인되었습니다";
+         domaincheck.style.color = "green";
+      }
 
    }
+
    const domain_select = () => {
       const domain = document.getElementById("email-domain-select");
       console.log(domain.value);
-      const domainInput = document.getElementById("member-email");
+      const domainInput = document.getElementById("email-domain");
       domainInput.value = domain.value;
    }
 
