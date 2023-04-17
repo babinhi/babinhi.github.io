@@ -43,7 +43,7 @@
             width: 400px;
             height: auto;
             font-family: 'Stylish', sans-serif;
-            font-size: larger;
+            font-size: medium;
         }
 
         #sub {
@@ -62,6 +62,10 @@
         }
         #bottombox{
             font-size:medium;
+        }
+        #find {
+            color: black;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -84,14 +88,14 @@
             id="member-password" name="memberPassword"> -->
             <input type="text" class="form-control mb-3" onblur="check_password()" id="password-check" placeholder="비밀번호를 입력해주세요"
                 name="checkPassword">
-            <input type="text" id ="login_ok" class="btn btn-dark btn-blook mb-3" onclick="loginok()" value="로그인"><br><br>
+            <input type="button" id ="login_ok" class="btn btn-dark mb-3" onclick="loginok()" value="로그인"><br><br>
             <p id="check-result"></p>
             <div id = "bottombox" class="row mt-2">
                 <div class="col">
                     <a href="save.html" id="save" class="ms-5">회원가입</a>
                 </div>
                 <div class="col">
-                    <a>아이디/비밀번호 찾기</a>
+                    <a href="#" id="find" >아이디/비밀번호 찾기</a>
                 </div>
             </div>
 
