@@ -18,12 +18,21 @@
     <style>
         body{
             font-family: 'Dongle', sans-serif;
+            /* font-family: 'Stylish', sans-serif; */
         }
         #loginbox {
             background-position: center;
             width: 500px;
             height: 500px;
             
+        }
+        #title{
+            font-size:x-large;
+            width: 80px;
+            height: 45px;
+        }
+        #indexbox{
+            font-size: x-large;
         }
 
         #save_form {
@@ -32,6 +41,7 @@
             width: 400px;
             height: auto;
             font-family: 'Stylish', sans-serif;
+            font-size: larger;
         }
 
         #sub {
@@ -43,19 +53,23 @@
             text-decoration: none;
         }
         #login_ok{
+            
             float: right;
             width: 100px;
             height: 35px;
+        }
+        #bottombox{
+            font-size:medium;
         }
     </style>
 </head>
 
 <body>
 
-    <button onclick="goIndex()" class="btn btn-blook mt-3 ms-2"> 뒤로가기</button> <br>
+    <button onclick="goIndex()" id ="title" class="btn btn-dark mt-3 ms-2"><strong>뒤로가기</strong></button><br>
 
     <div id="loginbox" class="container mt-3">
-        <div id="titlebox" class="ms-"><br>
+        <div id="indexbox" class="ms-"><br>
             <h1><strong>로그인</strong></h1>
         </div>
         <div id="save_form" class="form-control mt-4 rounded-4"><br>
@@ -70,9 +84,9 @@
                 name="checkPassword">
             <input type="text" id ="login_ok" class="btn btn-dark btn-blook mb-3" onclick="loginok()" value="로그인"><br><br>
             <p id="check-result"></p>
-            <div class="row mt-2">
+            <div id = "bottombox" class="row mt-2">
                 <div class="col">
-                    <a href="save.html" id="save" class="ms-3">회원가입</a>
+                    <a href="save.html" id="save" class="ms-5">회원가입</a>
                 </div>
                 <div class="col">
                     <a>아이디/비밀번호 찾기</a>
